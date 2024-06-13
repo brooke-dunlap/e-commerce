@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  Product.findBYPK(req.params.id, {include: [{model: Category}, {model: Tag}]}).then((productData) => res.json(productData));
+  Product.findByPk(req.params.id, {include: [{model: Category}, {model: Tag}]}).then((productData) => res.json(productData));
 });
 
 // create new product
@@ -97,7 +97,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
-  Category.destroy({
+  Product.destroy({
     where: {
       id: req.params.id,
     },

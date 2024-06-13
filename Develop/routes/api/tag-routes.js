@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-  Tag.findBYPK(req.params.id, {include: [{model: Product}]}).then((tagData) => res.json(tagData));
+  Tag.findByPk(req.params.id, {include: [{model: Product}]}).then((tagData) => res.json(tagData));
 });
 
 router.post('/', (req, res) => {
@@ -26,7 +26,7 @@ router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update(
     {
-      tage_name: req.body.tage_name,
+      tag_name: req.body.tage_name,
     },
     {
       where: {
